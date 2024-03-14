@@ -10,7 +10,7 @@ public class Post {
 
     private int countOfLikes = 0;
 
-    private LocalTime date;
+    private LocalTime  date = LocalTime.now();
 
     public String getMsg() {
         return msg;
@@ -50,6 +50,10 @@ public class Post {
         setDate();
         incrementCountOfLikes();
 
+    }
+
+    public String toString(){
+        return msg + "(" + date + ") " + "Likes = " + countOfLikes;
     }
 
 

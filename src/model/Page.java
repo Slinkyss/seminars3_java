@@ -12,5 +12,11 @@ public class Page {
 
     private ArrayList<Post> postsInPage;
 
+    public String getTitle(){
+        return title;
+    }
 
+    public void setTitle(String title){
+
+    }
 }
