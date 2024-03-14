@@ -76,9 +76,15 @@ public class PrivateUser extends User{
 //        } else {
 //            throw new Exception("This user is already a follower");
 //        }
-        
+
+        for(User tempUser : followers){
+            if(tempUser.getUsername().equals(user.getUsername())){
+                followers.add(user);
+            } else {
+                 throw new Exception("This user is already a follower");
+       }
+            }
+        }
+
     }
 
-
-
-}
