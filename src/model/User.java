@@ -1,9 +1,11 @@
 package model;
 
-public abstract class User extends GuestUser {
+import service.IPostService;
+
+public abstract class User extends GuestUser implements IPostService {
     private String username;
 
-    private String nameAndSurnameOrTitle;
+    protected String nameAndSurnameOrTitle;
 
 
     private String password;
