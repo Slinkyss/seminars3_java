@@ -1,9 +1,10 @@
 package model;
 
-public class User {
+public abstract class User extends GuestUser {
     private String username;
 
-    private String nameAndSurname;
+    private String nameAndSurnameOrTitle;
+
 
     private String password;
 
@@ -12,9 +13,42 @@ public class User {
         return username;
     }
 
-    public void setUsername(String username){
-        if(username != null && username.length() > 3 && username.length() < 14)
-            this.username = username;
+    public void setUsername(){
+        this.username = nameAndSurnameOrTitle + "_" + getGeneratedID();
+    }
 
+    public String getPassword(){
+        return password;
+    }
+
+    public void setPassword(String password){
+        if(password != null && password.length() > 5)
+            this.password = password;
+        else
+            this.password = "_____";
+    }
+
+    public String getNameAndSurnameOrTitle() {
+        return nameAndSurnameOrTitle;
+    }
+
+    public abstract void setNameAndSurnameOrTitle(String nameAndSurnameOrTitle);
+
+
+    public User(){
+        super();
+        setPassword("test12345");
+    }
+
+    public User(String password){
+        super();
+
+        setPassword(password);
+
+
+    }
+
+    public String toString(){
+        return super.toString() + ":";
     }
 }
